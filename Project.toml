@@ -1,0 +1,4 @@
+name = "Polars"
+uuid = "10e8eb88-ba63-414b-aef7-c6307136506c"
+authors = ["Samay Kapadia <samay.kapadia@gmail.com>"]
+version = "0.1.0"
