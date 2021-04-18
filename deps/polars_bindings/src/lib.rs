@@ -9,5 +9,5 @@ pub extern fn greet(cstring: *const c_char) {
     let cstr = unsafe { CStr::from_ptr(cstring) };
 
     let s = cstr.to_str().ok().unwrap();
-    println!("Hello, {:?}", s);
+    println!("Hello, {}", s);
 }

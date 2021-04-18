@@ -40,12 +40,12 @@ function write_deps_file(libname, libfile, juliapackage)
 import Libdl
 const $rustlibname = joinpath(@__DIR__, "$libfile")
 function check_deps()
-    global $libname
-    if !isfile($libname)
-        error("\$$libname does not exist, Please re-run Pkg.build(\\"$juliapackage\\"), and restart Julia.")
+    global $rustlibname
+    if !isfile($rustlibname)
+        error("\$$rustlibname does not exist, Please re-run Pkg.build(\\"$juliapackage\\"), and restart Julia.")
     end
-    if Libdl.dlopen_e($libname) == C_NULL
-        error("\$$libname cannot be opened, Please re-run Pkg.build(\\"$juliapackage\\"), and restart Julia.")
+    if Libdl.dlopen_e($rustlibname) == C_NULL
+        error("\$$rustlibname cannot be opened, Please re-run Pkg.build(\\"$juliapackage\\"), and restart Julia.")
     end
 end
 """
