@@ -11,9 +11,9 @@ end
 include(deps_file)
 ##
 ccall(
-    (:greet, libpolars_bindings), 
+    (:greet, polars_bindings), 
     Cvoid, 
-    (String,), 
+    (CString,), 
     "hi")
 ##
 # todo
