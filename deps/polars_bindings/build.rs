@@ -1,3 +1,5 @@
+// cbindgen --crate polars_bindings --output c_headers/polars_bindings.h --lang c
+
 extern crate cbindgen;
 
 use std::env;
@@ -11,6 +13,6 @@ fn main() {
            .with_language(cbindgen::Language::C)
            .generate()
            .expect("Unable to generate bindings")
-           .write_to_file("include/myheader.h");
+           .write_to_file("c_headers/polars_bindings.h");
     }
 }

@@ -1,0 +1,3 @@
+[submodule "deps/polars"]
+	path = deps/polars
+	url = git@github.com:ritchie46/polars.git

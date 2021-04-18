@@ -1,0 +1,36 @@
+[package]
+name = "polars_bindings"
+version = "0.1.0"
+edition = "2018"
+
+[workspace]
+# prevents package from thinking it's in the workspace
+
+[dependencies]
+polars-core = {path = "../polars/polars/polars-core", default-features = false}
+
+[dependencies.polars]
+path = "../polars/polars"
+features = [
+    "parquet",
+    "simd",
+    "lazy",
+    "strings",
+    "temporal",
+    "random",
+    "object",
+    "ipc",
+    "csv-file",
+    "pretty_fmt",
+    "performant",
+    "dtype-full",
+    "pivot",
+    "downsample"
+]
+
+[lib]
+name = "polars_bindings"
+crate-type = ["staticlib", "cdylib"]
+
+[build-dependencies]
+cbindgen = "0.19.0"
