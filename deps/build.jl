@@ -38,7 +38,7 @@ end
 function write_deps_file(libname, libfile, juliapackage)
     script = """
 import Libdl
-const $libname = joinpath(@__DIR__, "$libfile")
+const $rustlibname = joinpath(@__DIR__, "$libfile")
 function check_deps()
     global $libname
     if !isfile($libname)

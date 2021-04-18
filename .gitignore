@@ -1,3 +1,4 @@
 Manifest.toml
 build.log
 .rustc_info.json
+deps/release
