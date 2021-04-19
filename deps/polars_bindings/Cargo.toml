@@ -7,26 +7,16 @@ edition = "2018"
 # prevents package from thinking it's in the workspace
 
 [dependencies]
-polars-core = {path = "../polars/polars/polars-core", default-features = false}
-
-[dependencies.polars]
-path = "../polars/polars"
-features = [
+polars = { version = "0.12.1", features = [
     "parquet",
     "simd",
-    "lazy",
+    "json",
     "strings",
     "temporal",
     "random",
     "object",
-    "ipc",
-    "csv-file",
-    "pretty_fmt",
-    "performant",
-    "dtype-full",
-    "pivot",
-    "downsample"
-]
+    "ipc"
+]}
 
 [lib]
 name = "polars_bindings"
