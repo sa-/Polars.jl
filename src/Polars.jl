@@ -1,20 +1,13 @@
-module Polars
-
-greet() = print("Hello World!")
-
-end # module
-##
 const deps_file = joinpath(dirname(@__FILE__), "..", "deps", "deps.jl")
-if !isfile(deps_file)
-    error("womp womp")
-end
+@assert isfile(deps_file) "Could not find native dependency"
+
 include(deps_file)
+include("generated/ctypes.jl")
+include("generated/polars_common.jl")
+include("generated/polars_api.jl")
+check_deps()
 ##
-ccall(
-    (:greet, polars_bindings), 
-    Cvoid, 
-    (CString,), 
-    "hi")
+greet(Person(Base.unsafe_convert(Cstring, "a"), 99))
 ##
 # todo
 # make CLang generate api.jl

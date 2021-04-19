@@ -3,4 +3,9 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-void greet(const char *cstring);
+typedef struct Person {
+  const char *name;
+  int64_t age;
+} Person;
+
+void greet(struct Person person);

@@ -20,7 +20,7 @@ function build_dylib()
     mv(release_dylib_filepath, joinpath(@__DIR__, dylib))
     rm(release_dir, recursive=true)
 
-    write_deps_file(libname, dylib, juliapackage)
+    write_deps_file(rustlibname, dylib, juliapackage)
 end
 
 function dylib_filename()
@@ -35,7 +35,7 @@ function dylib_filename()
     end
 end
 
-function write_deps_file(libname, libfile, juliapackage)
+function write_deps_file(rustlibname, libfile, juliapackage)
     script = """
 import Libdl
 const $rustlibname = joinpath(@__DIR__, "$libfile")
